@@ -1,24 +1,27 @@
-<img src="thumbnail.png" alt="thumbnail" width="300"/>
+<img src="https://www.arm.gov/img/ARM_Logo.png" alt="thumbnail" width="300"/>
 
-# (Replace_with_your_title) Cookbook
-
-[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
+# Surface Flux Analysis Cookbook
+[![nightly-build](https://github.com/EVS-ATMOS/surface-flux-analysis/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/EVS-ATMOS/surface-flux-analysis/actions/workflows/nightly-build.yaml)
 [![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythia/cookbook-template/main?labpath=notebooks)
 
-This Project Pythia Cookbook covers ... (replace `...` with the main subject of your cookbook ... e.g., _working with radar data in Python_)
+This Surface Flux Analysis Cookbook covers working with Atmospheric Radiation Measurement (ARM) eddy covariance surface flux analysis datasets. 
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+The Atmospheric Radiation Measurement (ARM) user facility has a significant data record of
+surface flux (momentum, sensible and latent heat, and CO2) data available at multiple locations
+around the Southern Great Plains (SGP) observatory. This project will explore long-term data
+analysis of the fluxes and break down the flux statistics by vegetation type. Students will gain
+experience with Python, surface flux data, ARM, and open-source software.
 
 ## Authors
 
-[First Author](@first-author), [Second Author](@second-author), etc. _Acknowledge primary content authors here_
+[Joe O'Brien](@jrobrien91), [Second Author](@second-author), etc. _Acknowledge primary content authors here_
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythia/cookbook-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythia/cookbook-template" />
+<a href="https://github.com/EVS-ATMOS/surface-flux-analysis/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=EVS-ATMOS/surface-flux-analysis" />
 </a>
 
 ## Structure
@@ -60,10 +63,10 @@ If you are interested in running this material locally on your computer, you wil
 
 (Replace "cookbook-example" with the title of your cookbooks)
 
-1. Clone the `https://github.com/ProjectPythia/cookbook-example` repository:
+1. Clone the `https://github.com/EVS-ATMOS/surface-flux-analysis/` repository:
 
    ```bash
-    git clone https://github.com/ProjectPythia/cookbook-example.git
+    git clone https://github.com/EVS-ATMOS/surface-flux-analysis.git
    ```
 
 1. Move into the `cookbook-example` directory
@@ -73,7 +76,7 @@ If you are interested in running this material locally on your computer, you wil
 1. Create and activate your conda environment from the `environment.yml` file
    ```bash
    conda env create -f environment.yml
-   conda activate cookbook-example
+   conda activate surface-flux-analysis-dev
    ```
 1. Move into the `notebooks` directory and start up Jupyterlab
    ```bash
