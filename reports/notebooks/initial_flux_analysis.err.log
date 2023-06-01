@@ -15,19 +15,42 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import act
-import numpy as np
-import xarray as xr
-import matplotlib.pyplot as plt
+# Set your ARM Live data username and password.
+username = 'YourUserName'
+token = 'YourToken'
+
+# Set the datastream and dates for download.  Let's just look at one week to start
+# If you don't know the datastream you can always download through data discovery as well
+# https://adc.arm.gov/discovery/#/
+# You can also easily change the facility (E14) to other ones as well
+datastream = 'sgp30qcecorE14.s1'
+startdate = '20180501'
+enddate = '20180507'
+
+# Download data using the webservice
+qcecor_files = act.discovery.download_data(username, token, datastream, startdate, enddate)
+
+# Download ECOR data using the webservice
+datastream = 'sgp30ecorE14.b1'
+ecor_files = act.discovery.download_data(username, token, datastream, startdate, enddate)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mact[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mxarray[39;00m [38;5;28;01mas[39;00m [38;5;21;01mxr[39;00m
+[0;31mConnectionRefusedError[0m                    Traceback (most recent call last)
+Cell [0;32mIn[2], line 14[0m
+[1;32m     11[0m enddate [38;5;241m=[39m [38;5;124m'[39m[38;5;124m20180507[39m[38;5;124m'[39m
+[1;32m     13[0m [38;5;66;03m# Download data using the webservice[39;00m
+[0;32m---> 14[0m qcecor_files [38;5;241m=[39m [43mact[49m[38;5;241;43m.[39;49m[43mdiscovery[49m[38;5;241;43m.[39;49m[43mdownload_data[49m[43m([49m[43musername[49m[43m,[49m[43m [49m[43mtoken[49m[43m,[49m[43m [49m[43mdatastream[49m[43m,[49m[43m [49m[43mstartdate[49m[43m,[49m[43m [49m[43menddate[49m[43m)[49m
+[1;32m     16[0m [38;5;66;03m# Download ECOR data using the webservice[39;00m
+[1;32m     17[0m datastream [38;5;241m=[39m [38;5;124m'[39m[38;5;124msgp30ecorE14.b1[39m[38;5;124m'[39m
 
-[0;31mModuleNotFoundError[0m: No module named 'act'
+File [0;32m/usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/act/discovery/get_armfiles.py:122[0m, in [0;36mdownload_data[0;34m(username, token, datastream, startdate, enddate, time, output)[0m
+[1;32m    120[0m [38;5;66;03m# if the response is an html doc, then there was an error with the user[39;00m
+[1;32m    121[0m [38;5;28;01mif[39;00m response_body[[38;5;241m1[39m:[38;5;241m14[39m] [38;5;241m==[39m [38;5;124m'[39m[38;5;124m!DOCTYPE html[39m[38;5;124m'[39m:
+[0;32m--> 122[0m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionRefusedError[39;00m([38;5;124m'[39m[38;5;124mError with user. Check username or token.[39m[38;5;124m'[39m)
+[1;32m    124[0m [38;5;66;03m# parse into json object[39;00m
+[1;32m    125[0m response_body_json [38;5;241m=[39m json[38;5;241m.[39mloads(response_body)
+
+[0;31mConnectionRefusedError[0m: Error with user. Check username or token.
 

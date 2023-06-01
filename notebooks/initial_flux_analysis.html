@@ -479,18 +479,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">act</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;act&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="what-is-the-arm-eddy-correlation-measurement-system-ecor">
@@ -528,6 +516,27 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="c1"># Download ECOR data using the webservice</span>
 <span class="n">datastream</span> <span class="o">=</span> <span class="s1">&#39;sgp30ecorE14.b1&#39;</span>
 <span class="n">ecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ConnectionRefusedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">enddate</span> <span class="o">=</span> <span class="s1">&#39;20180507&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Download data using the webservice</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">qcecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># Download ECOR data using the webservice</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">datastream</span> <span class="o">=</span> <span class="s1">&#39;sgp30ecorE14.b1&#39;</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/act/discovery/get_armfiles.py:122,</span> in <span class="ni">download_data</span><span class="nt">(username, token, datastream, startdate, enddate, time, output)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># if the response is an html doc, then there was an error with the user</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="k">if</span> <span class="n">response_body</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;!DOCTYPE html&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">122</span>     <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span><span class="s1">&#39;Error with user. Check username or token.&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="c1"># parse into json object</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="n">response_body_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_body</span><span class="p">)</span>
+
+<span class="ne">ConnectionRefusedError</span>: Error with user. Check username or token.
 </pre></div>
 </div>
 </div>
