@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Project Pythia Cookbook Template</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-T52X8HNYE8');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://projectpythia.org">
+  <img src="../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ProjectPythia" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/project_pythia" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Surface Flux Analysis Cookbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebook-template.html">
+   Project Pythia Notebook Template
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Surface Flux Analysis Updated.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ProjectPythia/cookbook-template/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ProjectPythia/cookbook-template//issues/new?title=Issue%20on%20page%20%2Fnotebooks/Surface Flux Analysis Updated.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ProjectPythia/cookbook-template/edit/main/notebooks/Surface Flux Analysis Updated.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/ProjectPythia/cookbook-template/main?urlpath=lab/tree/notebooks/Surface Flux Analysis Updated.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import modules</span>
+<span class="kn">import</span> <span class="nn">act</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">urllib3</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">metpy.units</span> <span class="kn">import</span> <span class="n">pandas_dataframe_to_unit_arrays</span><span class="p">,</span> <span class="n">units</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#What are the possible crop types?</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cdl_2022_stat_clip_20230609045923_1995493459.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#What are the possible crop types?</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cdl_2022_stat_clip_20230609045923_1995493459.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">data</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/pandas/io/parsers/readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/pandas/io/parsers/readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/pandas/io/common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;cdl_2022_stat_clip_20230609045923_1995493459.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set your ARM Live data username and password.</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;nmarkus&#39;</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;643b246242abf8c3&#39;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Facility Number:&#39;</span><span class="p">)</span>
+<span class="c1"># Set the datastream and dates for download.  Let&#39;s just look at one week to start</span>
+<span class="c1"># If you don&#39;t know the datastream you can always download through data discovery as well</span>
+<span class="c1"># https://adc.arm.gov/discovery/#/</span>
+<span class="c1"># You can also easily change the facility (E14) to other ones as well</span>
+<span class="n">datastream</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sgp30qcecorE</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">.s1&#39;</span>
+<span class="n">startdate</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input Start Date (YYYYMMDD):&#39;</span><span class="p">)</span>
+<span class="n">enddate</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input End Date (YYYYMMDD):&#39;</span><span class="p">)</span>
+
+<span class="c1"># Download data using the webservice</span>
+<span class="n">qcecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+
+<span class="c1"># Download ECOR data using the webservice</span>
+<span class="n">datastream</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sgp30ecorE</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">.b1&#39;</span>
+<span class="n">ecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading in data to an xarray dataset is very easy using ACT</span>
+<span class="c1"># ARM has some standards that can cause issues with the xarray reader at times</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">qcecor_files</span><span class="p">)</span>
+<span class="n">ds_ecor</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">ecor_files</span><span class="p">)</span>
+<span class="n">ds_ecor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get variables in the proper format</span>
+<span class="n">wspd</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;wind_spd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">wdir</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ustar</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;ustar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lv</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;fc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[Y]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1970</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Subset the times</span>
+<span class="n">time</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide how to subset your data</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For weekly data, enter 336</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For daily data, enter 48</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For twice-daily data, enter 24</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For hourly data, enter 2</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For half-hourly data, enter 1</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;Enter your number here:&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide the hour offset:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Subset the data and put into a text file</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;flux_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="p">(</span><span class="n">wdir</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">6.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">wspd</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">6.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">lv</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">6.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">fc</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">5.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">lat</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">  </span><span class="si">{</span><span class="p">(</span><span class="n">lon</span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">ds1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;flux_data.txt&#39;</span><span class="p">)</span>
+<span class="n">ds1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Turn the text file into an xarray dataset</span>
+<span class="n">ds2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data_vars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">sensible_heat_flux</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">2</span><span class="p">]),</span>
+        <span class="n">latent_heat_flux</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">3</span><span class="p">]),</span>
+        <span class="n">wdir2</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="n">wspd2</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">co2_flux</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">4</span><span class="p">]),</span>
+    <span class="p">),</span>
+    <span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="n">lon</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="mi">6</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">attrs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Flux Data&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
+<span class="n">ds2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Turn the data into individual variables</span>
+<span class="n">wdir2</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;wdir2&#39;</span><span class="p">]</span>
+<span class="n">wspd2</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;wspd2&#39;</span><span class="p">]</span>
+<span class="n">sensible_heat_flux</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">]</span>
+<span class="n">latent_heat_flux</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">]</span>
+<span class="n">co2_flux</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;co2_flux&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use xarray funcationality to quickly plot up the data</span>
+<span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s just make sure the wind data looks good as well</span>
+<span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;wspd2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s build a function that has the &quot;Good&quot; fetch directions defined</span>
+<span class="k">def</span> <span class="nf">get_arm_fetch</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">fac</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Each SGP ECOR site has specific directions where the fetch is good</span>
+<span class="sd">    These ranges list are of good fetch directions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ranges</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">site</span> <span class="o">==</span> <span class="s1">&#39;sgp&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E1&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E2&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">71</span><span class="p">,</span> <span class="mi">137</span><span class="p">],</span> <span class="p">[</span><span class="mi">223</span><span class="p">,</span> <span class="mi">289</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E3&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">],</span> <span class="p">[</span><span class="mi">132</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E4&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">158</span><span class="p">],</span> <span class="p">[</span><span class="mi">202</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E5&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">154</span><span class="p">],</span> <span class="p">[</span><span class="mi">154</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E6&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E7&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">244</span><span class="p">],</span> <span class="p">[</span><span class="mi">296</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E8&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">224</span><span class="p">],</span> <span class="p">[</span><span class="mi">314</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E9&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E10&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E11&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E12&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E13&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">52</span><span class="p">],</span> <span class="p">[</span><span class="mi">142</span><span class="p">,</span> <span class="mi">194</span><span class="p">],</span> <span class="p">[</span><span class="mi">328</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E14&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">129</span><span class="p">,</span> <span class="mi">265</span><span class="p">],</span> <span class="p">[</span><span class="mi">352</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E15&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">133</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E16&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">134</span><span class="p">,</span> <span class="mi">269</span><span class="p">],</span> <span class="p">[</span><span class="mi">334</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E18&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">325</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E19&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">133</span><span class="p">],</span> <span class="p">[</span><span class="mi">151</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E20&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">230</span><span class="p">],</span> <span class="p">[</span><span class="mi">310</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E21&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E22&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">49</span><span class="p">],</span> <span class="p">[</span><span class="mi">139</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E24&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">280</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E25&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E26&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span> <span class="p">[</span><span class="mi">243</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E27&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">20</span><span class="p">,</span><span class="mi">156</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E31&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E32&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E33&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E34&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E35&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E36&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E37&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">310</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E38&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E39&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E40&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E41&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">ranges</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
+<span class="c1"># Get good fetch ranges for this site</span>
+<span class="n">site</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;site_id&#39;</span><span class="p">]</span>
+<span class="n">fac</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;facility_id&#39;</span><span class="p">]</span>
+<span class="n">ranges</span> <span class="o">=</span> <span class="n">get_arm_fetch</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">fac</span><span class="p">)</span>
+<span class="c1">#Get the crop types</span>
+<span class="n">crop</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wdir2</span><span class="p">):</span>
+    <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">geo_utils</span><span class="o">.</span><span class="n">destination_azimuth_distance</span><span class="p">(</span><span class="n">lat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">,</span> <span class="mf">100.</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">lon2</span><span class="p">):</span>
+        <span class="n">crop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">crop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">get_cropscape</span><span class="o">.</span><span class="n">croptype</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">year</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">crop</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create an array of the crop types, then add it to our dataset</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">crop</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;wdir2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;crop_type&#39;</span><span class="p">)</span>
+<span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;crop_type&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">da</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#What crop types are we working with?</span>
+<span class="n">crop_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">89</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">da</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">crop_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="n">crop_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Flux-Time Graphs</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crop_list</span><span class="p">)):</span>     
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">==</span> <span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">sensible_heat_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Sensible Heat Flux&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">latent_heat_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Latent Heat Flux&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">sensible_heat_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">latent_heat_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Heat Flux (W/m^2)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fluxes Over Time for </span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">co2_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CO2 Flux&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">co2_flux</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CO2 Flux (umol/(sm^2))&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Histograms</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crop_list</span><span class="p">)):</span>  
+    <span class="n">ds3</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">crop_type</span> <span class="o">==</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">hist</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">HistogramDisplay</span><span class="p">({</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">ds3</span><span class="p">},</span> <span class="n">subplot_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;co2_flux&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Polar Coordinate Graphs</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crop_list</span><span class="p">)):</span>
+
+    <span class="n">ds3</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">crop_type</span> <span class="o">==</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">display</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">WindRoseDisplay</span><span class="p">({</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">ds3</span><span class="p">},</span>
+                                           <span class="n">subplot_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">num_data_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">clevels</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">num_data_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">clevels</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;co2_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">num_data_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">clevels</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Polar Coordinate Graphs</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">crop_list</span><span class="p">)):</span>
+
+    <span class="n">ds3</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">crop_type</span> <span class="o">==</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">display</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">WindRoseDisplay</span><span class="p">({</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">ds3</span><span class="p">},</span>
+                                           <span class="n">subplot_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;latent_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wdir2&#39;</span><span class="p">,</span> <span class="s1">&#39;wspd2&#39;</span><span class="p">,</span> <span class="s1">&#39;co2_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> 
+                      <span class="n">dsname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">crop_list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2022.
+        
+          By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
+        
+          Last updated on 21 June 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
