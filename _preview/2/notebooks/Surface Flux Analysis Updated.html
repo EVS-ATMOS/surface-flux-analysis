@@ -417,6 +417,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="n">datastream</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sgp30qcecorE</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">.s1&#39;</span>
 <span class="n">startdate</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input Start Date (YYYYMMDD):&#39;</span><span class="p">)</span>
 <span class="n">enddate</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input End Date (YYYYMMDD):&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide how to subset your data</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For weekly data, enter 336</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For daily data, enter 48</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For twice-daily data, enter 24</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For hourly data, enter 2</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;For half-hourly data, enter 1</span><span class="se">\n</span><span class="s1">&#39;</span>
+         <span class="s1">&#39;Enter your number here:&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide the hour offset:&#39;</span><span class="p">)</span>
 
 <span class="c1"># Download data using the webservice</span>
 <span class="n">qcecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
@@ -460,14 +468,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Subset the times</span>
 <span class="n">time</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide how to subset your data</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;For weekly data, enter 336</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;For daily data, enter 48</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;For twice-daily data, enter 24</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;For hourly data, enter 2</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;For half-hourly data, enter 1</span><span class="se">\n</span><span class="s1">&#39;</span>
-         <span class="s1">&#39;Enter your number here:&#39;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Decide the hour offset:&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
     <span class="n">time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
@@ -652,7 +652,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <span class="n">crop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">crop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">get_cropscape</span><span class="o">.</span><span class="n">croptype</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">year</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">crop</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">crop</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -826,7 +826,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 21 June 2023.
+          Last updated on 28 June 2023.
         </p>
       </div>
     </div>
