@@ -1,0 +1,1905 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surface Flux Analysis &#8212; Project Pythia Cookbook Template</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-T52X8HNYE8');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://projectpythia.org">
+  <img src="../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ProjectPythia" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/project_pythia" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Surface Flux Analysis Cookbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebook-template.html">
+   Project Pythia Notebook Template
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/initial_flux_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ProjectPythia/cookbook-template/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ProjectPythia/cookbook-template//issues/new?title=Issue%20on%20page%20%2Fnotebooks/initial_flux_analysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ProjectPythia/cookbook-template/edit/main/notebooks/initial_flux_analysis.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/ProjectPythia/cookbook-template/main?urlpath=lab/tree/notebooks/initial_flux_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Surface Flux Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-arm-eddy-correlation-measurement-system-ecor">
+     What is the ARM Eddy Correlation Measurement System (ECOR)?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-are-fluxes-important">
+       Why are fluxes important?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-and-reading-in-arm-data">
+     Downloading and Reading in ARM Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#downloading-data">
+       Downloading data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reading-in-data">
+       Reading in data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-plots">
+   Quick Plots
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quality-control-of-ecor-data">
+     Quality Control of ECOR Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#crop-type-information">
+       Crop Type Information
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#putting-it-all-together">
+       Putting it All Together
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-do-we-see">
+       What do we see?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-steps">
+     Next Steps
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources-and-references">
+     Resources and references
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datasets-used-in-this-example">
+       Datasets used in this example
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cropscape-citations">
+       Cropscape Citations
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arm-instrument-handbook">
+       ARM Instrument Handbook
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#author">
+       Author
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <p><a class="reference internal" href="https://www.arm.gov/uploads/ECOR_new_SGP1.jpg"><img alt="ARM ECOR Banner" src="https://www.arm.gov/uploads/ECOR_new_SGP1.jpg" style="width: 800px;" /></a></img></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="surface-flux-analysis">
+<h1>Surface Flux Analysis<a class="headerlink" href="#surface-flux-analysis" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<hr class="docutils" />
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>The Atmospheric Radiation Measurement (ARM) user facility has a significant data record of surface flux (momentum, sensible and latent heat, and CO2) data available at multiple locations around the Southern Great Plains (SGP) observatory.  This project will explore long-term data analysis of the fluxes and break down the flux statistics by vegetation type.  Students will gain experience with Python, surface flux data, ARM, and open-source software. Topics included in this notebook are:</p>
+<ol class="arabic simple">
+<li><p>What is the ARM Eddy Correlation Measurement System (ECOR)?</p></li>
+<li><p>Downloading and Reading in ECOR data</p></li>
+<li><p>Quality controlling ECOR data at SGP</p></li>
+<li><p>Crop Type Information</p></li>
+<li><p>Putting it all together!</p></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>This notebook will rely heavily on Python and the <a class="reference external" href="https://github.com/ARM-DOE/ACT">Atmospheric data Community Toolkit (ACT)</a>.  Don’t worry if you don’t have experience with either, this notebook will walk you though what you need to know.</p>
+<p>You will also need an account and token to download data using the ARM Live webservice.  Navigate to the <a class="reference external" href="https://adc.arm.gov/armlive/">webserive information page</a> and log in to get your token.  Your account username will be your ARM username.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ARM-DOE/ACT">ACT</a></p></td>
+<td><p>Helpful</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 60 Minutes</p></li>
+<li><p><strong>System requirements</strong>:</p>
+<ul>
+<li><p>Python 3.11 or latest</p></li>
+<li><p>ACT v1.4.5 or latest</p></li>
+<li><p>numpy</p></li>
+<li><p>xarray</p></li>
+<li><p>matplotlib</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">act</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-the-arm-eddy-correlation-measurement-system-ecor">
+<h2>What is the ARM Eddy Correlation Measurement System (ECOR)?<a class="headerlink" href="#what-is-the-arm-eddy-correlation-measurement-system-ecor" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>The eddy correlation (ECOR) flux measurement system provides half-hour measurements of the surface turbulent fluxes of momentum, sensible heat, latent heat, and carbon dioxide. The ECOR uses the eddy covariance technique, which involves correlation of the vertical wind component with the horizontal wind component, air temperature, water vapor density, and CO2 density.</p>
+<p>More information on the system can be found on <a class="reference external" href="https://arm.gov/capabilities/instruments/ecor">ARM’s ECOR instrument page</a>.  Please note that the <a class="reference external" href="https://www.arm.gov/publications/tech_reports/handbooks/ecor_handbook.pdf">Instrument Handbook</a> has a lot of useful information in it as well, including some good quality control information that will come in handy later.</p>
+<div class="section" id="why-are-fluxes-important">
+<h3>Why are fluxes important?<a class="headerlink" href="#why-are-fluxes-important" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Land-atmosphere interactions (LAI) are the main drivers of earth’s surface water and energy budgets.  Understanding how energy, heat, and greenhouse gases flow from the surface is important for verifying and improving global climate models.  Understanding the impact crop type has on these fluxes can have wide impacts as 52% of the U.S. land base is used for agriculture (<a class="reference external" href="https://www.ers.usda.gov/topics/farm-economy/land-use-land-value-tenure/#:~:text=Agricultural%20production%20is%20a%20major,of%20the%20U.S.%20land%20base.">USDA</a>) with the Food and Agriculture Organization of the United Nations indicating that roughly 38% of the entire world is dedicated to agriculture.</p>
+</div>
+</div>
+<div class="section" id="downloading-and-reading-in-arm-data">
+<h2>Downloading and Reading in ARM Data<a class="headerlink" href="#downloading-and-reading-in-arm-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>In this section, you will download data from ARM’s Live Data Web Service and read it in to an xarray dataset using ACT.  <strong>Warning!  Do not commit your username and token to the Github repo!  You do not want to make these public</strong></p>
+<p>If you read the instrument webpage, it noted that the 30ecor datastream has the uncorrected fluxes and it’s recommended that routine ECOR corrections are applied.  The corrected data are available in the 30qcecor Value-Added Product (VAP) so that is what we are going to be working with.  Note that this dataset is only available from 2010 onward and the SGP ECOR systems were upgraded in October 2019 and are producing corrected fluxes in the ECORSF datastream.  While the QCECOR product has corrected fluxes it doees not include wind direction and speed that we will need later on so we will need to download both the QCECOR and base ECOR data products.</p>
+<div class="section" id="downloading-data">
+<h3>Downloading data<a class="headerlink" href="#downloading-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set your ARM Live data username and password.</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;YourUserName&#39;</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;YourToken&#39;</span>
+
+<span class="c1"># Set the datastream and dates for download.  Let&#39;s just look at one week to start</span>
+<span class="c1"># If you don&#39;t know the datastream you can always download through data discovery as well</span>
+<span class="c1"># https://adc.arm.gov/discovery/#/</span>
+<span class="c1"># You can also easily change the facility (E14) to other ones as well</span>
+<span class="n">datastream</span> <span class="o">=</span> <span class="s1">&#39;sgp30qcecorE14.s1&#39;</span>
+<span class="n">startdate</span> <span class="o">=</span> <span class="s1">&#39;20180501&#39;</span>
+<span class="n">enddate</span> <span class="o">=</span> <span class="s1">&#39;20180530&#39;</span>
+
+<span class="c1"># Download data using the webservice</span>
+<span class="n">qcecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+
+<span class="c1"># Download ECOR data using the webservice</span>
+<span class="n">datastream</span> <span class="o">=</span> <span class="s1">&#39;sgp30ecorE14.b1&#39;</span>
+<span class="n">ecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ConnectionRefusedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">enddate</span> <span class="o">=</span> <span class="s1">&#39;20180530&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Download data using the webservice</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">qcecor_files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">datastream</span><span class="p">,</span> <span class="n">startdate</span><span class="p">,</span> <span class="n">enddate</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># Download ECOR data using the webservice</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">datastream</span> <span class="o">=</span> <span class="s1">&#39;sgp30ecorE14.b1&#39;</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.10/site-packages/act/discovery/get_armfiles.py:122,</span> in <span class="ni">download_data</span><span class="nt">(username, token, datastream, startdate, enddate, time, output)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># if the response is an html doc, then there was an error with the user</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="k">if</span> <span class="n">response_body</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;!DOCTYPE html&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">122</span>     <span class="k">raise</span> <span class="ne">ConnectionRefusedError</span><span class="p">(</span><span class="s1">&#39;Error with user. Check username or token.&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="c1"># parse into json object</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="n">response_body_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_body</span><span class="p">)</span>
+
+<span class="ne">ConnectionRefusedError</span>: Error with user. Check username or token.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-in-data">
+<h3>Reading in data<a class="headerlink" href="#reading-in-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading in data to an xarray dataset is very easy using ACT</span>
+<span class="c1"># ARM has some standards that can cause issues with the xarray reader at times</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">qcecor_files</span><span class="p">)</span>
+<span class="n">ds_ecor</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">ecor_files</span><span class="p">)</span>
+
+<span class="c1"># Add the wind speed and dir to the main object</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">]</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;wind_spd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_ecor</span><span class="p">[</span><span class="s1">&#39;wind_spd&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print this out to the screen so you can see the variables</span>
+<span class="c1"># Note that QCECOR dataset does not have CO2 fluxes and that each flux</span>
+<span class="c1"># variable has a quality control variable (qc_[name])</span>
+<span class="n">ds</span>
+
+
+<span class="c1"># Additional work could be to look at what it take to correct the CO2 Flux data</span>
+<span class="c1"># or to analyze the newere ECORSF data as a comparison.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:                (time: 1440)
+Coordinates:
+  * time                   (time) datetime64[ns] 2018-05-01 ... 2018-05-30T23...
+Data variables:
+    base_time              (time) datetime64[ns] 2018-05-01 ... 2018-05-30
+    time_offset            (time) datetime64[ns] 2018-05-01 ... 2018-05-30T23...
+    sensible_heat_flux     (time) float32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+    qc_sensible_heat_flux  (time) int32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+    latent_heat_flux       (time) float32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+    qc_latent_heat_flux    (time) int32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+    lat                    (time) float32 36.61 36.61 36.61 ... 36.61 36.61
+    lon                    (time) float32 -97.49 -97.49 -97.49 ... -97.49 -97.49
+    alt                    (time) float32 315.0 315.0 315.0 ... 315.0 315.0
+    wind_dir               (time) float32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+    wind_spd               (time) float32 dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;
+Attributes: (12/25)
+    Conventions:           CF-1.6
+    title:                 Quality Controlled Eddy Correlation Flux Measureme...
+    description1:          This VAP of surface latent and sensible heat flux\...
+    description2:          Eddy correlation corrections applied: \nWebb-Pearm...
+    description3:          LLNL added QC includes: \ndata range check, outlie...
+    description4:          Additional QC is added on latent heat flux based o...
+    ...                    ...
+    doi:                   10.5439/1097546
+    history:               created by user dsmgr on machine ruby at 2019-10-0...
+    _file_dates:           [&#x27;20180501&#x27;, &#x27;20180502&#x27;, &#x27;20180503&#x27;, &#x27;20180504&#x27;, &#x27;...
+    _file_times:           [&#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;,...
+    _datastream:           sgp30qcecorE14.s1
+    _arm_standards_flag:   1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-d4f2fe12-6d09-452f-85d2-3d641c65f940' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d4f2fe12-6d09-452f-85d2-3d641c65f940' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1440</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f2295d64-a0ae-43a5-870a-7ccde8548a46' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f2295d64-a0ae-43a5-870a-7ccde8548a46' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-05-01 ... 2018-05-30T23:30:00</div><input id='attrs-2712623a-6070-4651-8268-f64a0ebc06f3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2712623a-6070-4651-8268-f64a0ebc06f3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a35ae73c-4aff-4a21-99c1-041886160069' class='xr-var-data-in' type='checkbox'><label for='data-a35ae73c-4aff-4a21-99c1-041886160069' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time offset from midnight</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-05-01T00:00:00.000000000&#x27;, &#x27;2018-05-01T00:30:00.000000000&#x27;,
+       &#x27;2018-05-01T01:00:00.000000000&#x27;, ..., &#x27;2018-05-30T22:30:00.000000000&#x27;,
+       &#x27;2018-05-30T23:00:00.000000000&#x27;, &#x27;2018-05-30T23:30:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-05458738-6e2e-45db-9ee7-ab5ce81baef5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-05458738-6e2e-45db-9ee7-ab5ce81baef5' class='xr-section-summary' >Data variables: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>base_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-05-01 ... 2018-05-30</div><input id='attrs-7473ae44-3230-448f-9029-c9794619c271' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7473ae44-3230-448f-9029-c9794619c271' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87a9506a-0188-4248-be58-c3e1b95072b0' class='xr-var-data-in' type='checkbox'><label for='data-87a9506a-0188-4248-be58-c3e1b95072b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>string :</span></dt><dd>2018-05-01 00:00:00 0:00</dd><dt><span>long_name :</span></dt><dd>Base time in Epoch</dd><dt><span>ancillary_variables :</span></dt><dd>time_offset</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-05-01T00:00:00.000000000&#x27;, &#x27;2018-05-01T00:00:00.000000000&#x27;,
+       &#x27;2018-05-01T00:00:00.000000000&#x27;, ...,
+       &#x27;2018-05-30T00:00:00.000000000&#x27;, &#x27;2018-05-30T00:00:00.000000000&#x27;,
+       &#x27;2018-05-30T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_offset</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-05-01 ... 2018-05-30T23:30:00</div><input id='attrs-265019ea-123b-4eac-b8fa-55e4e58280e9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-265019ea-123b-4eac-b8fa-55e4e58280e9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-08ee2717-40df-44e8-81bf-d558827d9ab4' class='xr-var-data-in' type='checkbox'><label for='data-08ee2717-40df-44e8-81bf-d558827d9ab4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time offset from base_time</dd><dt><span>ancillary_variables :</span></dt><dd>base_time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-05-01T00:00:00.000000000&#x27;, &#x27;2018-05-01T00:30:00.000000000&#x27;,
+       &#x27;2018-05-01T01:00:00.000000000&#x27;, ...,
+       &#x27;2018-05-30T22:30:00.000000000&#x27;, &#x27;2018-05-30T23:00:00.000000000&#x27;,
+       &#x27;2018-05-30T23:30:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sensible_heat_flux</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-d1363ec1-f2e0-4b3c-9980-3fcdfa9f1e03' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d1363ec1-f2e0-4b3c-9980-3fcdfa9f1e03' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-09514080-b42d-498e-8f32-20f4226569c1' class='xr-var-data-in' type='checkbox'><label for='data-09514080-b42d-498e-8f32-20f4226569c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sensible heat flux at surface</dd><dt><span>units :</span></dt><dd>W/m^2</dd><dt><span>standard_name :</span></dt><dd>surface_upward_sensible_heat_flux</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>valid_max :</span></dt><dd>1100.0</dd><dt><span>valid_min :</span></dt><dd>-300.0</dd><dt><span>ancillary_variables :</span></dt><dd>qc_sensible_heat_flux</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>qc_sensible_heat_flux</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-dadc71c9-d266-42a1-b0b8-36a0e2855a91' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dadc71c9-d266-42a1-b0b8-36a0e2855a91' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35f63d70-f676-4687-8ecc-c8952ea13d43' class='xr-var-data-in' type='checkbox'><label for='data-35f63d70-f676-4687-8ecc-c8952ea13d43' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Quality check results on field: Sensible heat flux at surface</dd><dt><span>units :</span></dt><dd>unitless</dd><dt><span>description :</span></dt><dd>This field contains integer values indicating the results of QC test on the data. Non-zero integers indicate the QC condition given in the description for those integers; a value of 0 indicates the data has not failed any QC tests.</dd><dt><span>flag_method :</span></dt><dd>integer</dd><dt><span>flag_2_description :</span></dt><dd>Value not available or failed one or more quality control tests, value set to missing_value.</dd><dt><span>flag_2_assessment :</span></dt><dd>Bad</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> int32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latent_heat_flux</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-b8f5b59b-bff8-4401-87da-52b1952a427a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b8f5b59b-bff8-4401-87da-52b1952a427a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d44563d7-e189-4d49-b14b-c4ee5abfedc2' class='xr-var-data-in' type='checkbox'><label for='data-d44563d7-e189-4d49-b14b-c4ee5abfedc2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Latent heat flux at surface</dd><dt><span>units :</span></dt><dd>W/m^2</dd><dt><span>standard_name :</span></dt><dd>surface_upward_latent_heat_flux</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>valid_max :</span></dt><dd>1100.0</dd><dt><span>valid_min :</span></dt><dd>-300.0</dd><dt><span>ancillary_variables :</span></dt><dd>qc_latent_heat_flux</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>qc_latent_heat_flux</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-30681b95-fd63-477b-8241-837ffc59154e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30681b95-fd63-477b-8241-837ffc59154e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6371f799-d992-4414-abfb-096919e27bbc' class='xr-var-data-in' type='checkbox'><label for='data-6371f799-d992-4414-abfb-096919e27bbc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Quality check results on field: Latent heat flux at surface</dd><dt><span>units :</span></dt><dd>unitless</dd><dt><span>description :</span></dt><dd>This field contains integer values indicating the results of QC test on the data. Non-zero integers indicate the QC condition given in the description for those integers; a value of 0 indicates the data has not failed any QC tests.</dd><dt><span>flag_method :</span></dt><dd>integer</dd><dt><span>flag_1_description :</span></dt><dd>Use caution, Value might be impacted by wetness issue of instrument based on SEBS wetness data</dd><dt><span>flag_1_assessment :</span></dt><dd>Indeterminate</dd><dt><span>flag_2_description :</span></dt><dd>Value not available or failed one or more quality control tests, value set to missing_value.</dd><dt><span>flag_2_assessment :</span></dt><dd>Bad</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> int32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>36.61 36.61 36.61 ... 36.61 36.61</div><input id='attrs-b96257db-c01c-4287-bd22-e26cc99c63fb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b96257db-c01c-4287-bd22-e26cc99c63fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65f0c83d-b1c4-4c9b-9e68-1b068670348b' class='xr-var-data-in' type='checkbox'><label for='data-65f0c83d-b1c4-4c9b-9e68-1b068670348b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>North latitude</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd><dt><span>valid_max :</span></dt><dd>90.0</dd></dl></div><div class='xr-var-data'><pre>array([36.607, 36.607, 36.607, ..., 36.607, 36.607, 36.607], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-97.49 -97.49 ... -97.49 -97.49</div><input id='attrs-67de97f0-58c8-426f-84b2-e5dd653e8491' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-67de97f0-58c8-426f-84b2-e5dd653e8491' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4036faea-f0f2-4bef-969e-187270c5df17' class='xr-var-data-in' type='checkbox'><label for='data-4036faea-f0f2-4bef-969e-187270c5df17' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>East longitude</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>valid_max :</span></dt><dd>180.0</dd></dl></div><div class='xr-var-data'><pre>array([-97.488, -97.488, -97.488, ..., -97.488, -97.488, -97.488],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>alt</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>315.0 315.0 315.0 ... 315.0 315.0</div><input id='attrs-ab005fc8-dda9-44c1-a13c-c7c925b2dd99' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab005fc8-dda9-44c1-a13c-c7c925b2dd99' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-86358ff6-3034-44ae-84e0-0adad4e22858' class='xr-var-data-in' type='checkbox'><label for='data-86358ff6-3034-44ae-84e0-0adad4e22858' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Altitude above mean sea level</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>altitude</dd></dl></div><div class='xr-var-data'><pre>array([315., 315., 315., ..., 315., 315., 315.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>wind_dir</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-229fa3b2-59f4-4ada-a212-c19bb8e88271' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-229fa3b2-59f4-4ada-a212-c19bb8e88271' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-27265776-6f49-4970-9447-496c5cec527f' class='xr-var-data-in' type='checkbox'><label for='data-27265776-6f49-4970-9447-496c5cec527f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Vector averaged wind direction</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>valid_max :</span></dt><dd>360.0</dd><dt><span>resolution :</span></dt><dd>1.0</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>wind_spd</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(48,), meta=np.ndarray&gt;</div><input id='attrs-b5e63622-b4a6-40fc-b788-eb9155cada55' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b5e63622-b4a6-40fc-b788-eb9155cada55' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b2dfd6b1-871c-493b-8ebc-d46889536e36' class='xr-var-data-in' type='checkbox'><label for='data-b2dfd6b1-871c-493b-8ebc-d46889536e36' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Vector averaged wind speed</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>valid_max :</span></dt><dd>42.0</dd><dt><span>resolution :</span></dt><dd>0.01</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 192 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1440,) </td>
+                        <td> (48,) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 90 Tasks </td>
+                        <td> 30 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="4" y1="0" x2="4" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="16" y1="0" x2="16" y2="25" />
+  <line x1="24" y1="0" x2="24" y2="25" />
+  <line x1="28" y1="0" x2="28" y2="25" />
+  <line x1="36" y1="0" x2="36" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="48" y1="0" x2="48" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="60" y1="0" x2="60" y2="25" />
+  <line x1="68" y1="0" x2="68" y2="25" />
+  <line x1="72" y1="0" x2="72" y2="25" />
+  <line x1="80" y1="0" x2="80" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="92" y1="0" x2="92" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >1440</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-65649073-0bf7-41f9-ab82-e09a6f4205f0' class='xr-section-summary-in' type='checkbox'  ><label for='section-65649073-0bf7-41f9-ab82-e09a6f4205f0' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7d7c7721-0175-4377-a93b-f195541e3a36' class='xr-index-data-in' type='checkbox'/><label for='index-7d7c7721-0175-4377-a93b-f195541e3a36' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2018-05-01 00:00:00&#x27;, &#x27;2018-05-01 00:30:00&#x27;,
+               &#x27;2018-05-01 01:00:00&#x27;, &#x27;2018-05-01 01:30:00&#x27;,
+               &#x27;2018-05-01 02:00:00&#x27;, &#x27;2018-05-01 02:30:00&#x27;,
+               &#x27;2018-05-01 03:00:00&#x27;, &#x27;2018-05-01 03:30:00&#x27;,
+               &#x27;2018-05-01 04:00:00&#x27;, &#x27;2018-05-01 04:30:00&#x27;,
+               ...
+               &#x27;2018-05-30 19:00:00&#x27;, &#x27;2018-05-30 19:30:00&#x27;,
+               &#x27;2018-05-30 20:00:00&#x27;, &#x27;2018-05-30 20:30:00&#x27;,
+               &#x27;2018-05-30 21:00:00&#x27;, &#x27;2018-05-30 21:30:00&#x27;,
+               &#x27;2018-05-30 22:00:00&#x27;, &#x27;2018-05-30 22:30:00&#x27;,
+               &#x27;2018-05-30 23:00:00&#x27;, &#x27;2018-05-30 23:30:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1440, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-266e8c2f-33cf-4ca0-91ab-04736da11ac1' class='xr-section-summary-in' type='checkbox'  ><label for='section-266e8c2f-33cf-4ca0-91ab-04736da11ac1' class='xr-section-summary' >Attributes: <span>(25)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>title :</span></dt><dd>Quality Controlled Eddy Correlation Flux Measurement (QCECOR) for surface sensible and latent fluxes</dd><dt><span>description1 :</span></dt><dd>This VAP of surface latent and sensible heat flux
+is generated based on original ECOR data
+by Yunyan Zhang and Shaocheng Xie (LLNL)
+with help from ARM ECOR instrument mentor David R. Cook (ANL).</dd><dt><span>description2 :</span></dt><dd>Eddy correlation corrections applied: 
+Webb-Pearman correction, frequency correction,
+sensor separation correction, stability corrections, filtering correction,
+and line-averaging and volume-averaging corrections.
+For data after the installation of Surface Energy Balance System (SEBS) (Jan. 2011),
+the SEBS wetness data are used to constrain heat fluxes when processing.
+Sonic anemometer height is set to be 3 meters,
+except for SGP.E21 where it is set to be 4 meters.</dd><dt><span>description3 :</span></dt><dd>LLNL added QC includes: 
+data range check, outlier check, standard deviation check, 
+and temporal variability check
+Value is set to missing if it fails LLNL QC, qc flag value is set to 2</dd><dt><span>description4 :</span></dt><dd>Additional QC is added on latent heat flux based on SEBS wetness data which become available after Oct. 2010. 
+If SEBS wetness &lt; 2, then latent heat flux qc flag is set to 1.
+However the value of latent heat flux is kept and NOT set to missing.
+This is because SEBS wetness &lt; 2 happens so frequently during night, for users&#x27; benefit or interest
+on diurnal cycle data, the value is kept. Please USE with CAUTION!</dd><dt><span>institution :</span></dt><dd>United States Department of Energy - Atmospheric Radiation Measurement (ARM) program</dd><dt><span>process_version :</span></dt><dd>vap-qcecor-1.2-0.el6</dd><dt><span>dod_version :</span></dt><dd>30qcecor-s1-1.1</dd><dt><span>datastream :</span></dt><dd>sgp30qcecorE14.s1</dd><dt><span>platform_id :</span></dt><dd>30qcecor</dd><dt><span>data_level :</span></dt><dd>s1</dd><dt><span>site_id :</span></dt><dd>sgp</dd><dt><span>facility_id :</span></dt><dd>E14</dd><dt><span>location_description :</span></dt><dd>Southern Great Plains (SGP), Lamont, Oklahoma</dd><dt><span>authors :</span></dt><dd>Yunyan Zhang (zhang25@llnl.gov)</dd><dt><span>qc_date :</span></dt><dd>Thu Jan 28 21:54:10 UTC 2016</dd><dt><span>command_line :</span></dt><dd>idl -R -n qcecor -s sgp -f E14 -D -b 20030912 -e 20191008</dd><dt><span>input_datastreams :</span></dt><dd>sgp30ecorE14.b1 : 13.4 : 20180501.000000
+sgpsebsE14.b1 : 1.5 : 20180501.000000</dd><dt><span>doi :</span></dt><dd>10.5439/1097546</dd><dt><span>history :</span></dt><dd>created by user dsmgr on machine ruby at 2019-10-08 14:25:59, using vap-qcecor-1.2-0.el6</dd><dt><span>_file_dates :</span></dt><dd>[&#x27;20180501&#x27;, &#x27;20180502&#x27;, &#x27;20180503&#x27;, &#x27;20180504&#x27;, &#x27;20180505&#x27;, &#x27;20180506&#x27;, &#x27;20180507&#x27;, &#x27;20180508&#x27;, &#x27;20180509&#x27;, &#x27;20180510&#x27;, &#x27;20180511&#x27;, &#x27;20180512&#x27;, &#x27;20180513&#x27;, &#x27;20180514&#x27;, &#x27;20180515&#x27;, &#x27;20180516&#x27;, &#x27;20180517&#x27;, &#x27;20180518&#x27;, &#x27;20180519&#x27;, &#x27;20180520&#x27;, &#x27;20180521&#x27;, &#x27;20180522&#x27;, &#x27;20180523&#x27;, &#x27;20180524&#x27;, &#x27;20180525&#x27;, &#x27;20180526&#x27;, &#x27;20180527&#x27;, &#x27;20180528&#x27;, &#x27;20180529&#x27;, &#x27;20180530&#x27;]</dd><dt><span>_file_times :</span></dt><dd>[&#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;, &#x27;000000&#x27;]</dd><dt><span>_datastream :</span></dt><dd>sgp30qcecorE14.s1</dd><dt><span>_arm_standards_flag :</span></dt><dd>1</dd></dl></div></li></ul></div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="quick-plots">
+<h1>Quick Plots<a class="headerlink" href="#quick-plots" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use xarray funcationality to quickly plot up the data</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fabe9bd5d80&gt;]
+</pre></div>
+</div>
+<img alt="../_images/3cf24e27b8a877197fd51ef273b879eb16c00634ecfb37b0248c34211772989b.png" src="../_images/3cf24e27b8a877197fd51ef273b879eb16c00634ecfb37b0248c34211772989b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s just make sure the wind data looks good as well</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;wind_spd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fabd8e97c70&gt;]
+</pre></div>
+</div>
+<img alt="../_images/0b5f41ac502327bbd8d7b8deeae58975bd509bbd3096b4f4c66c75ebb144f7f9.png" src="../_images/0b5f41ac502327bbd8d7b8deeae58975bd509bbd3096b4f4c66c75ebb144f7f9.png" />
+</div>
+</div>
+<div class="section" id="quality-control-of-ecor-data">
+<h2>Quality Control of ECOR Data<a class="headerlink" href="#quality-control-of-ecor-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>If you read through the ECOR instrument handbook, you may have noticed that at some sites, there is not sufficient fetch for the measurements and the data are suspect.  We need to be able to apply those limits to the data as well as filter the data based on the qc variables that are included in the file.  Additionally, ARM instrument experts (Mentors) routinely write data quality reports (DQR) on the data if there are problems.  This section will look at how to use all this information to QC the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s build a function that has the &quot;Good&quot; fetch directions defined</span>
+<span class="k">def</span> <span class="nf">get_arm_fetch</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">fac</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Each SGP ECOR site has specific directions where the fetch is good</span>
+<span class="sd">    These ranges list are of good fetch directions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ranges</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">site</span> <span class="o">==</span> <span class="s1">&#39;sgp&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E1&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E2&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">71</span><span class="p">,</span> <span class="mi">137</span><span class="p">],</span> <span class="p">[</span><span class="mi">223</span><span class="p">,</span> <span class="mi">289</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E3&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">],</span> <span class="p">[</span><span class="mi">132</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E4&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">158</span><span class="p">],</span> <span class="p">[</span><span class="mi">202</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E5&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">154</span><span class="p">],</span> <span class="p">[</span><span class="mi">154</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E6&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E7&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">244</span><span class="p">],</span> <span class="p">[</span><span class="mi">296</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E8&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">224</span><span class="p">],</span> <span class="p">[</span><span class="mi">314</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E9&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E10&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E11&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E12&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E13&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">52</span><span class="p">],</span> <span class="p">[</span><span class="mi">142</span><span class="p">,</span> <span class="mi">194</span><span class="p">],</span> <span class="p">[</span><span class="mi">328</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E14&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">129</span><span class="p">,</span> <span class="mi">265</span><span class="p">],</span> <span class="p">[</span><span class="mi">352</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E15&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">133</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E16&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">134</span><span class="p">,</span> <span class="mi">269</span><span class="p">],</span> <span class="p">[</span><span class="mi">334</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E18&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">325</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E19&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">133</span><span class="p">],</span> <span class="p">[</span><span class="mi">151</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E20&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">230</span><span class="p">],</span> <span class="p">[</span><span class="mi">310</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E21&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E22&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">49</span><span class="p">],</span> <span class="p">[</span><span class="mi">139</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E24&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">280</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E25&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E26&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span> <span class="p">[</span><span class="mi">243</span><span class="p">,</span> <span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E27&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">20</span><span class="p">,</span><span class="mi">156</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E31&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E32&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E33&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E34&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E35&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E36&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E37&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">310</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E38&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">260</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E39&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E40&#39;</span><span class="p">:</span>  <span class="c1"># EBBR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">fac</span> <span class="o">==</span> <span class="s1">&#39;E41&#39;</span><span class="p">:</span>  <span class="c1">#ECOR</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">260</span><span class="p">],</span> <span class="p">[</span><span class="mi">280</span><span class="p">,</span> <span class="mi">360</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">ranges</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s first apply DQRs (if any) to the data</span>
+<span class="c1"># This will print out a link to the full DQR if there is one</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">qc</span><span class="o">.</span><span class="n">arm</span><span class="o">.</span><span class="n">add_dqr_to_qc</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">dqr_link</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Next, we will filter the data based on the QC</span>
+<span class="c1"># Let&#39;s only remove the &quot;Bad&quot; data for now</span>
+<span class="c1"># The VAP may also automatically set the data to NAN when it fails QC</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">qcfilter</span><span class="o">.</span><span class="n">datafilter</span><span class="p">(</span><span class="n">rm_assessments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Bad&#39;</span><span class="p">],</span> <span class="n">del_qc_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># We could filter the data based on winds here, but it may be easier to</span>
+<span class="c1"># do when we are getting the crop information for each wind direction</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="crop-type-information">
+<h3>Crop Type Information<a class="headerlink" href="#crop-type-information" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>ACT has a function to access crop type data from the <a class="reference external" href="https://nassgeodata.gmu.edu/CropScape">USDA Cropscape</a> portal.  This is somewhat of an odd feature to have in ACT, but surface type information is very important to surface meteorological measurements.  Let’s get the crop type for each wind sample and see if there are ways you can think of to make this more effecient for processing large datasets.</p>
+<p>Don’t forget that crop types may change by year!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a dummy wind direction variable</span>
+<span class="n">c_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">361</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># We will need the year for getting the crop type</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[Y]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1970</span>
+<span class="n">unique_year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+
+<span class="c1"># Create a dictionary to house all the crop information</span>
+<span class="n">crop_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">yr</span> <span class="ow">in</span> <span class="n">unique_year</span><span class="p">:</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">c_dir</span><span class="p">):</span>
+            <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">geo_utils</span><span class="o">.</span><span class="n">destination_azimuth_distance</span><span class="p">(</span><span class="n">lat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">,</span> <span class="mf">50.</span><span class="p">)</span>
+            <span class="n">crop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">get_cropscape</span><span class="o">.</span><span class="n">croptype</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">yr</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">crop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">crop</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">crop_dict</span><span class="p">[</span><span class="n">yr</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c_dir&#39;</span><span class="p">:</span> <span class="n">c_dir</span><span class="p">,</span> <span class="s1">&#39;crop_type&#39;</span><span class="p">:</span> <span class="n">crop</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+/opt/anaconda3/lib/python3.10/site-packages/urllib3/connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;nassgeodata.gmu.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdir</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">c_dir</span> <span class="o">+</span> <span class="mf">22.5</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">ds_year</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get good fetch ranges for this site</span>
+<span class="n">site</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;site_id&#39;</span><span class="p">]</span>
+<span class="n">fac</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;facility_id&#39;</span><span class="p">]</span>
+<span class="n">ranges</span> <span class="o">=</span> <span class="n">get_arm_fetch</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">fac</span><span class="p">)</span>
+<span class="n">qc_ind</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ranges</span><span class="p">:</span>
+    <span class="n">qc_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">qc_ind</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">wdir</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">wdir</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># Set the QC variable for the wind direction.</span>
+<span class="n">qc_crop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wdir</span><span class="p">))</span>
+<span class="n">qc_crop</span><span class="p">[</span><span class="n">qc_ind</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">crop_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wdir</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">yr</span> <span class="ow">in</span> <span class="n">ds_year</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">ds_wind</span> <span class="o">=</span> <span class="n">ds_year</span><span class="p">[</span><span class="n">yr</span><span class="p">]</span><span class="o">.</span><span class="n">groupby_bins</span><span class="p">(</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bins</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)):</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">ds_wind</span><span class="o">.</span><span class="n">groups</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+        <span class="n">crop_type</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">crop_dict</span><span class="p">[</span><span class="n">yr</span><span class="p">][</span><span class="s1">&#39;crop_type&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        
+<span class="c1"># Add crop type and QC flag to existing object</span>
+<span class="n">atts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;long_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Crop type information based on wind direction as taken from CropScape&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;unitless&#39;</span><span class="p">}</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">crop_type</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;crop_type&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">atts</span><span class="p">)</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;crop_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">da</span> 
+        
+<span class="n">ds</span><span class="o">.</span><span class="n">qcfilter</span><span class="o">.</span><span class="n">create_qc_variable</span><span class="p">(</span><span class="s1">&#39;crop_type&#39;</span><span class="p">,</span><span class="n">flag_type</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;qc_crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">qc_crop</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;qc_crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;flag_values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;qc_crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;flag_meanings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sufficient Fetch&#39;</span><span class="p">,</span><span class="s1">&#39;Insufficient Fetch&#39;</span><span class="p">]</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;qc_crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;flag_assessments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Good&#39;</span><span class="p">,</span><span class="s1">&#39;Suspect&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h3>Putting it All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>We have the ECOR data, we have the crop data, now let’s look at the results!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First let&#39;s plot out all the data</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">DistributionDisplay</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;plot_handle&#39;: &lt;Axes: title={&#39;center&#39;: &#39;sgp30qcecorE14.s1 sensible_heat_flux on 20180501&#39;}, xlabel=&#39;(W/m^2)&#39;, ylabel=&#39;count&#39;&gt;,
+ &#39;bins&#39;: array([-252.07791 , -176.64098 , -101.20404 ,  -25.767105,   49.66983 ,
+         125.106766,  200.5437  ,  275.98065 ,  351.41757 ,  426.8545  ,
+         502.29144 ], dtype=float32),
+ &#39;histogram&#39;: array([  1,   6, 306, 579, 136, 106, 133,  89,  49,  12])}
+</pre></div>
+</div>
+<img alt="../_images/e67d83b2948639ea738fe41fa3c027385ffdcb204a6320e9f964ee06c81caed0.png" src="../_images/e67d83b2948639ea738fe41fa3c027385ffdcb204a6320e9f964ee06c81caed0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next let&#39;s look at the crop types we have for this site</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Alfalfa&#39;, &#39;Alfalfa&#39;, &#39;Alfalfa&#39;, ..., &#39;Grass/Pasture&#39;,
+       &#39;Grass/Pasture&#39;, &#39;Grass/Pasture&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s pick two of these to plot up</span>
+<span class="c1"># Feel free to change the types around as well</span>
+<span class="n">ds_alfalfa</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">crop_type</span> <span class="o">==</span> <span class="s1">&#39;Alfalfa&#39;</span><span class="p">)</span>
+<span class="n">ds_wheat</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">crop_type</span> <span class="o">==</span> <span class="s1">&#39;Winter Wheat&#39;</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s plot again</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">DistributionDisplay</span><span class="p">({</span><span class="s1">&#39;Alfalfa&#39;</span><span class="p">:</span> <span class="n">ds_alfalfa</span><span class="p">,</span> <span class="s1">&#39;Wheat&#39;</span><span class="p">:</span> <span class="n">ds_wheat</span><span class="p">})</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="s1">&#39;Alfalfa&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Alfalfa&#39;</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">plot_stairstep_graph</span><span class="p">(</span><span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="s1">&#39;Wheat&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Wheat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fabcb474670&gt;
+</pre></div>
+</div>
+<img alt="../_images/6c860131feada6ec6143017adea79d54ed9aac606b5a0f1c3cae24af7e905588.png" src="../_images/6c860131feada6ec6143017adea79d54ed9aac606b5a0f1c3cae24af7e905588.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets try a different type of display that will show at</span>
+<span class="c1"># which wind direction and speeds we see larger fluxes</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">WindRoseDisplay</span><span class="p">({</span><span class="s1">&#39;Alfalfa&#39;</span><span class="p">:</span> <span class="n">ds_alfalfa</span><span class="p">,</span> <span class="s1">&#39;Wheat&#39;</span><span class="p">:</span> <span class="n">ds_wheat</span><span class="p">},</span>
+                                       <span class="n">subplot_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_spd&#39;</span><span class="p">,</span> <span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+                  <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="s1">&#39;Alfalfa&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_spd&#39;</span><span class="p">,</span> <span class="s1">&#39;sensible_heat_flux&#39;</span><span class="p">,</span> <span class="n">num_dirs</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+                  <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> <span class="n">dsname</span><span class="o">=</span><span class="s1">&#39;Wheat&#39;</span><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">contour_type</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/atheisen/Code/ACT/act/plotting/windrosedisplay.py:424: RuntimeWarning: Mean of empty slice
+  mean_data[i, j] = np.nanmean(data[idx])
+/opt/anaconda3/lib/python3.10/site-packages/dask/array/reductions.py:569: RuntimeWarning: All-NaN slice encountered
+  return np.nanmax(x_chunk, axis=axis, keepdims=keepdims)
+/Users/atheisen/Code/ACT/act/plotting/windrosedisplay.py:424: RuntimeWarning: Mean of empty slice
+  mean_data[i, j] = np.nanmean(data[idx])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PolarAxes: title={&#39;center&#39;: &#39;Mean of sensible_heat_flux (W/m^2) by\n wind_dir from 20180501 to 20180530&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../_images/507403dc2d3f30c6e038161fdf52c7acae86792915be0e3307a501eed8d20e24.png" src="../_images/507403dc2d3f30c6e038161fdf52c7acae86792915be0e3307a501eed8d20e24.png" />
+</div>
+</div>
+</div>
+<div class="section" id="what-do-we-see">
+<h3>What do we see?<a class="headerlink" href="#what-do-we-see" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The above stairstep graph shows there are some differences in sensible heat flux between alfalfa and wheat during this period but it’s hard to tell at which stage of their growing cycle each crop was.  Some more investigation might be warranted.  Site operations keeps logs of vegetation at each of the sites which could provide more detailed information.</p>
+<p>In the second set of plots, more data would definitely help fill in the contours and we might see some interesting features of the fluxes based on the direction and speed.</p>
+<p>Any other observations?</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>This was just a quick example for processing a weeks worth of data from one facility at ARM’s SGP site.  There is much more data to get processing on!</p>
+<ol class="arabic simple">
+<li><p>Look at how you can improve the function to get the crop type based on wind direction.  It might be best to get the crop types by wind direction for every degree or 2 for a single year and use that instead of querying the API for each sample.</p></li>
+<li><p>Process a year’s worth of data and see what that looks like!</p></li>
+<li><p>Develop some statistics that you can track for each crop type (min, max, median, mean are a good start) by year</p></li>
+<li><p>Look at other variables like latent_heat_flux.  We can also look at the uncorrected CO2 Flux from the ECOR datastream or look at the new ECORSF data to see how it compares.</p></li>
+<li><p>Now that this process is set, are there other systems or variables that would be interesting to look at?</p></li>
+<li><p>Have fun!  This project is for you to get familiar with ARM, Fluxes, and explore data!</p></li>
+</ol>
+</div>
+<div class="section" id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="datasets-used-in-this-example">
+<h3>Datasets used in this example<a class="headerlink" href="#datasets-used-in-this-example" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Xie, S. Quality Controlled Eddy Correlation Flux Measurement (30QCECOR). Atmospheric Radiation Measurement (ARM) User Facility. https://doi.org/10.5439/1097546</p>
+<p>Sullivan, R., Billesbach, D., Keeler, E., &amp; Ermold, B. Eddy Correlation Flux Measurement System (30ECOR). Atmospheric Radiation Measurement (ARM) User Facility. https://doi.org/10.5439/1025039</p>
+</div>
+<div class="section" id="cropscape-citations">
+<h3>Cropscape Citations<a class="headerlink" href="#cropscape-citations" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Han, W., Yang, Z., Di, L., Yue, P., 2014. A geospatial Web service approach for creating on-demand Cropland Data Layer thematic maps. Transactions of the ASABE, 57(1), 239-247.</p>
+<p>Han, W., Yang, Z., Di, L., Yagci, A., Han, S., 2014. Making Cropland Data Layer data accessible and actionable in GIS education. Journal of Geography, 113(3), 129-138.</p>
+<p>Han, W., Yang, Z., Di, L., Mueller, R., 2012. CropScape: A Web service based application for exploring and disseminating US conterminous geospatial cropland data products for decision support. Computers and Electronics in Agriculture, 84, 111–123.</p>
+<p>Boryan, C., Yang, Z., Willis, P., 2014. US geospatial crop frequency data layers. Third International Conference on Agro-geoinformatics (Agro-geoinformatics 2014), August 11-14, 2014, Beijing, China.</p>
+<p>Boryan, C., Yang, Z., Mueller, R., Craig, M., 2011. Monitoring US agriculture: the US Department of Agriculture, National Agricultural Statistics Service, Cropland Data Layer Program. Geocarto International, 26(5), 341–358.</p>
+</div>
+<div class="section" id="arm-instrument-handbook">
+<h3>ARM Instrument Handbook<a class="headerlink" href="#arm-instrument-handbook" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Cook, D. R. (2018). Eddy correlation flux measurement system (ECOR) instrument handbook (No. DOE/SC-ARM-TR-052). DOE Office of Science Atmospheric Radiation Measurement (ARM) Program (United States).</p>
+<p>Tang, S., Xie, S., Zhang, Y., &amp; Cook, D. R. (2019). The QCECOR Value-Added Product: Quality-Controlled Eddy Correlation Flux Measurements (No. DOE/SC-ARM-TR-223). DOE Office of Science Atmospheric Radiation Measurement (ARM) Program (United States).</p>
+</div>
+<div class="section" id="author">
+<h3>Author<a class="headerlink" href="#author" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Adam Theisen and Ryan Sullivan</p>
+<p>Corresponding Email: atheisen&#64;anl.gov</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2022.
+        
+          By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
+        
+          Last updated on 30 June 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
