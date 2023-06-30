@@ -672,7 +672,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="n">crop_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">89</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">da</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
             <span class="n">crop_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 <span class="n">crop_list</span>
 </pre></div>
@@ -807,7 +807,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 29 June 2023.
+          Last updated on 30 June 2023.
         </p>
       </div>
     </div>
