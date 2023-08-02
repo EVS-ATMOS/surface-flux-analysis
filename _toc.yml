@@ -4,3 +4,4 @@ parts:
   - caption: Introduction
     chapters:
       - file: notebooks/notebook-template
+      - file: notebooks/Surface_Flux_Analysis_Final
